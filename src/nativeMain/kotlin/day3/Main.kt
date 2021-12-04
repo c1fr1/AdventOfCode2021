@@ -36,15 +36,12 @@ fun gold(data : String) : Long {
 
 	var i = 1
 	while (oxygenList.size > 1) {
-		println(oxygenList)
-		println("${oxygenList.count { it[i] }} >= ${oxygenList.size} / 2?")
 		val mode = oxygenList.count { it[i] } * 2 >= oxygenList.size
 		oxygenList = oxygenList.filter { it[i] == mode }
 		++i
 	}
 	i = 1
 	while (scrubberList.size > 1) {
-		println("${scrubberList.count { it[i] }} >= ${scrubberList.size} / 2?")
 		val mode = scrubberList.count { it[i] } * 2 >= scrubberList.size
 		scrubberList = scrubberList.filter { it[i] != mode }
 		++i
@@ -56,12 +53,10 @@ fun gold(data : String) : Long {
 	var oxygenNumb = 0L
 	var scrubberNumb = 0L
 
-	for (i in oxygenList.first().indices) {
-		if (oxygenVal[i]) oxygenNumb += 1 shl (oxygenVal.size - i - 1)
-		if (scrubberVal[i]) scrubberNumb += 1 shl (oxygenVal.size - i - 1)
+	for (j in oxygenList.first().indices) {
+		if (oxygenVal[j]) oxygenNumb += 1 shl (oxygenVal.size - j - 1)
+		if (scrubberVal[j]) scrubberNumb += 1 shl (oxygenVal.size - j - 1)
 	}
-
-	println("ox: $oxygenNumb, scrubber: $scrubberNumb")
 
 	return oxygenNumb * scrubberNumb
 }
