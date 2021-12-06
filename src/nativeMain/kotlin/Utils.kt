@@ -5,6 +5,16 @@ import platform.posix.fread
 
 fun loadDay(day : Int) : String {
 	val path = "resources/day$day"
+	return loadPath(path)
+}
+
+
+fun loadExample(day : Int) : String {
+	val path = "resources/example$day"
+	return loadPath(path)
+}
+
+fun loadPath(path : String) : String {
 	val ret = StringBuilder()
 	val buffer = ByteArray(4096)
 	val file = fopen(path, "r")

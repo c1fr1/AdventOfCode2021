@@ -3,3 +3,4 @@ build/
 .idea/
 
 resources/day*
+resources/example*
