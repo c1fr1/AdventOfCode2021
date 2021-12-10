@@ -22,7 +22,7 @@ kotlin {
     nativeTarget.apply {
         binaries {
             executable {
-                entryPoint = "day8.main"
+                entryPoint = "day9.main"
             }
         }
     }
